@@ -1,70 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
+<h1>FastAPI Ticket-Exchange</h1>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Project</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+<p>This project is a Ticket-Exchange application built using FastAPI for the backend and HTML/CSS/JINJA for the frontend. It is designed to be easily set up using Docker Compose.</p>
 
-        h1,
-        h2,
-        h3,
-        p,
-        li {
-            margin-bottom: 15px;
-        }
+<h2>Getting Started</h2>
 
-        code {
-            background-color: #f4f4f4;
-            padding: 2px 5px;
-            border-radius: 4px;
-        }
+<h3>Prerequisites</h3>
+<p>Make sure you have Docker and Docker Compose installed on your machine.</p>
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+<h3>Usage</h3>
+<ol>
+  <li>Clone the repository:</li>
+  <pre><code>git clone [https://github.com/avonbuttlar/ticketexchange.git](https://github.com/avonbuttlar/ticketexchange.git)</code></pre>
 
-        li:before {
-            content: "•";
-            color: #3498db;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-    </style>
-</head>
+  <li>Navigate to the project directory:</li>
+  <pre><code>cd ticketexchange</code></pre>
 
-<body>
+  <li>Build and run the application using Docker Compose:</li>
+  <pre><code>docker-compose up</code></pre>
 
-    <h1>Student Project</h1>
+  <p>This command will start both the FastAPI backend and the JINJA frontend.</p>
 
-    <p>Based on this Tutorial: <a href="https://www.youtube.com/watch?v=49jkfC48KyM" target="_blank">Tutorial Link</a></p>
+  <li>Access the application in your browser:</li>
+  <ul>
+    <li>FastAPI Backend: <a href="http://localhost:5000/docs">http://localhost:5000/docs</a> (API documentation)</li>
+    <li>Frontend: <a href="http://localhost:5000">http://localhost:5000</a></li>
+  </ul>
+</ol>
 
-    <p>Wanted to try something with FastApi :)</p>
+<h2>ToDo</h2>
+<ol>
+  <li>Frontend Design with Angular</li>
+  <li>User Authentication</li>
+    <p>Implement user authentication using FastAPI's authentication system. Ensure to customize the authentication mechanisms and user management based on your application requirements.</p>
+</ol>
 
-    <h2>Table of Contents</h2>
-    <ul>
-        <li><a href="#todo">ToDo</a></li>
-        <li><a href="#usage">Usage</a></li>
-    </ul>
+<h2>Customization</h2>
 
-    <h2 id="todo">ToDo</h2>
-    <ul>
-        <li>Frontend mit Angular schön machen</li>
-        <li>User login</li>
-    </ul>
+<p>Feel free to customize the application according to your needs. Some potential enhancements include:</p>
 
-    <h2 id="usage">Usage</h2>
-    <p>Run the project using Docker Compose:</p>
-    <code>docker compose up</code>
+<ul>
+  <li>Adding more features to the Ticket-Exchange application</li>
+  <li>Implementing additional security measures.</li>
+  <li>Implementing the Angular frontend design and user experience.</li>
+  <li>Integrating with external services or databases.</li>
+</ul>
 
-</body>
+<h2>Contributing</h2>
 
-</html>
+<p>If you would like to contribute to this project, please follow the standard GitHub workflow:</p>
+
+<ol>
+  <li>Fork the repository.</li>
+  <li>Create a new branch for your feature or bug fix.</li>
+  <li>Make your changes and commit them.</li>
+  <li>Push the changes to your fork.</li>
+  <li>Submit a pull request.</li>
+</ol>
+
+<h2>License</h2>
+
+<p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
+
+<h2>Acknowledgments</h2>
+
+<p>Thanks to mbsoft for the excellent tutorial that inspired this project. The tutorial can be found <a href="https://www.youtube.com/watch?v=49jkfC48KyM">here</a>.</p>
+
+<p>Happy coding!</p>
+
+I absolutely wrote this README myself, and it certainly was not created with ChatGPT ;).
