@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="box">
+    <div class="header"></div>
+    <div>
+      <form method="post">
+        <div>
+          <input class="todo-input" required="required" name="user" placeholder="Name" type="text" value="{{ user }}" />
+          <select class="todo-input" required="required" name="type" value="{{ type }}">
+            <option value="Stehplatz">Stehplatz</option>
+            <option value="Sitzplatz">Sitzplatz</option>
+          </select>
+          <input class="todo-input" required="required" name="block" placeholder="Blocknummer" type="text" value="{{ block }}" />
+          <input class="todo-input" required="required" name="seat" placeholder="Sitznummer" type="text" value="{{ seat }}" />
+          <input class="todo-input" required="required" name="description" placeholder="Zusatz(bspw Tausch oder Verkauf/Preis)" type="text" value="{{ description }}" />
+        </div>
+        <button class="btn" id="button-addon2" type="submit">Karte hinzufügen</button>
+      </form>
+    </div>
+    {% if cards %}
+      <section class="p">
+        <div class="sub-header">
+         <h1>Angebotene Karten</h1>
+        </div>
+        <br />
+            {% for card in cards %}
+              <p class="card">
+                  <a href="/card/{{ card.id }}">{{ card.user }}</a>
+              </p>
+            {% endfor %}
+      </section>
+    {% endif %}
+  </div>
+{% endblock %}
+

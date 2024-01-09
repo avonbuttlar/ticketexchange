@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="box">
+
+    <div class="header">
+      <h1>Kartenangebot</h1>
+    </div>
+
+    <div class="sub-header">
+      <section>
+                  <p  class="label">{{ card.user }}</p>
+                  <p  class="label">{{ card.type }}</p>
+                  <p  class="label">{{ card.block }}</p>
+                  <p  class="label">{{ card.seat }}</p>
+                  <p  class="label">{{ card.description }}</p>
+      </section>
+    </div>
+
+    <div>
+      <button 
+      class=""
+      onclick="deleteThis()"> Anzeige löschen
+    </button>
+    </div>
+  </div>
+  <div>
+  <div>
+    <form id="updateForm">
+      <div>
+        <input class="todo-input" required="required" name="user" placeholder="Name" type="text" value="{{ user }}" />
+        <select class="todo-input" required="required" name="type" value="{{ type }}">
+          <option value="Stehplatz">Stehplatz</option>
+          <option value="Sitzplatz">Sitzplatz</option>
+        </select>
+        <input class="todo-input" required="required" name="block" placeholder="Blocknummer" type="text" value="{{ block }}" />
+        <input class="todo-input" required="required" name="seat" placeholder="Sitznummer" type="text" value="{{ seat }}" />
+        <input class="todo-input" required="required" name="description" placeholder="Zusatz(bspw Tausch oder Verkauf/Preis)" type="text" value="{{ description }}" />
+      </div>
+      <button class="btn" id="button-addon2" type="button" onclick="updateCard()">Update Card</button>
+    </form>
+  </div>
+
+
+
+
+
+<script>
+  function deleteThis() {
+    fetch('{{ card.id }}', {
+      method: 'DELETE'
+    })
+    .then(response => {
+      // Check if the delete operation was successful
+      if (response.ok) {
+        // Redirect to the home page
+        window.location.href = '/card';
+      } else {
+        // Handle the case where the delete operation failed
+        console.error('Delete operation failed.');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }
+
+  function updateCard() {
+  const form = document.getElementById('updateForm');
+  const formData = new FormData(form);
+
+  // Convert FormData to a plain object
+  const formDataObject = {};
+  formData.forEach((value, key) => {
+    formDataObject[key] = value;
+  });
+
+  // Create the desired JSON structure
+  const requestBody = {
+    user: formDataObject.user,
+    type: formDataObject.type,
+    block: formDataObject.block,
+    seat: formDataObject.seat,
+    description: formDataObject.description
+  };
+
+  fetch('{{ card.id }}', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestBody)
+  })
+  .then(response => {
+    if (response.ok) {
+      // Handle successful update, e.g., redirect to home page
+      window.location.href = '/card/{{ card.id }}';
+    } else {
+      // Handle update failure
+      console.error('Failed to update card.');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+</script>
+  
+{% endblock %}
